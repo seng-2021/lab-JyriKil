@@ -9,6 +9,8 @@ def encode(s):
     if len(s) > 1000:
         raise ValueError
     for c in s:
+        if c in ["ä", "å", "ö"]:
+            raise ValueError
         if c.isalpha():
             if c.islower():
                 c=c.upper()
@@ -23,4 +25,3 @@ def encode(s):
 
 def decode(s):
     return encode(s).lower()
-
